@@ -29,15 +29,7 @@ Unlike traditional lexical semantic change datasets that classify only “change
 
 ---
 
-## 🧩 Label Definitions
 
-| Label | Meaning | Description |
-|:------|:---------|:-------------|
-| 🟢 **Sense Gain** | New sense(s) appeared | Word developed additional modern or slang meanings |
-| 🔴 **Sense Loss** | Old sense(s) disappeared | Word lost a previous sense from an older time period |
-| ⚪ **Stable** | No semantic change | Word preserved its primary meaning |
-
----
 
 ## 💬 Target Words and Change Types
 

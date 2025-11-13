@@ -1,13 +1,16 @@
-# 🧠 BD-LSC: Bi-Directional Lexical Semantic Change  
-### A Benchmark Dataset for Tracking Sense Gain, Loss, and Stability in Slang and Standard English
+# 🧠 BD-LSC: Bi-Directional Lexical Semantic Change
+### A Dataset and Benchmark for Tracking Word Meaning Evolution in Slang and Standard English
 
 ---
 
 ## 🔍 Overview
+**BD-LSC** (Bi-Directional Lexical Semantic Change) is a benchmark dataset for analyzing how word meanings **gain**, **lose**, or **remain stable** over time — across both **standard English** and **slang**.  
+It introduces a **bi-directional annotation scheme**, capturing the complex evolution of senses across **three time periods (T1, T2, T3)**.
 
-BD-LSC (Bi-Directional Lexical Semantic Change) is the first benchmark dataset designed to detect and analyze bi-directional changes in word meaning, capturing how lexical senses are gained, lost, or remain stable across slang and standard English from the 1980s to the 2020s.
-
-Unlike traditional binary semantic change datasets (e.g., SemEval-2020 or TempoWiC), BD-LSC introduces multi-label temporal annotations across three time periods and integrates both formal corpora (COHA/CCOHA) and informal data (Twitter), enabling a unified view of language evolution across registers.
+Unlike traditional lexical semantic change datasets that classify only “change” vs “no change,” BD-LSC explicitly distinguishes:
+- 🟢 **Sense Gain (SG)** – new meanings emerge  
+- 🔴 **Sense Loss (SL)** – old meanings fade  
+- ⚪ **Stable (NC)** – meanings remain unchanged  
 
 ---
 
@@ -15,126 +18,135 @@ Unlike traditional binary semantic change datasets (e.g., SemEval-2020 or TempoW
 
 | Period | Years | Source | Description |
 |:------:|:------|:--------|:-------------|
-| T1 | 1980–1999 | CCOHA / COHA | Late 20th-century formal written English |
-| T2 | 2000–2009 | COHA | Early 21st-century transitional English |
-| T3 | 2010–2020 | Twitter | Contemporary slang and social media language |
+| **T1** | 1980–1999 | CCOHA / COHA | Late 20th-century formal English |
+| **T2** | 2000–2009 | COHA | Early 21st-century transitional English |
+| **T3** | 2010–2020 | Twitter, Urban Dictionary | Modern slang and online language |
 
-### 📚 Target words Sources
-- Standard English: COHA, CCOHA, Oxford English Dictionary (OED)  
-- Slang: SlangSD, Green’s Dictionary of Slang, Urban Dictionary, Online Slang Dictionary  
-- Annotation Quality: 3 expert annotators  
-  - Cohen’s κ = 0.92 (T1) / 0.89 (T2) / 0.86 (T3)  
-
-Each target word is labeled for Sense Gain (SG), Sense Loss (SL), and No Change (NC) between periods T1→T2, T2→T3, and T1→T3.
+**Data Sources:**
+- **Standard English:** COHA, CCOHA, Oxford English Dictionary (OED)  
+- **Slang Sources:** SlangSD, Urban Dictionary, Green’s Dictionary of Slang  
+- **Annotation:** 3 expert linguists (Cohen’s κ ≈ 0.9 across periods)
 
 ---
 
-## 💬 Target Words and Example Entries
+## 🧩 Label Definitions
 
-The BD-LSC dataset includes 79 target words (8,000+ annotated senses), covering both slang and standard English.
-
-
-| Word | No. of Senses | Example Standard Meanings | Example Slang Meanings | T1–T2 Label | T1–T3 Label | T2–T3 Label | Change Type Example |
-|:------|:--------------:|:---------------------------|:--------------------------|:-------------|:-------------|:-------------|:--------------------|
-| abc | 3 | Alphabet sequence; basic knowledge | Beginner-level; easy as ABC | ⚪ No Change | 🟢 Sense Gain | 🟢 Sense Gain | New informal usage appears online |
-| atm | 4 | Cash dispenser; banking terminal | “At the moment” (text slang) | 🔴 Sense Loss (technical narrowing) | 🟢 Sense Gain | 🟢 Sense Gain | Acronym gains new digital sense |
-| bam | 6 | Sudden impact; loud sound | Expression of excitement (“Bam!”) | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Added expressive interjection |
-| battery | 5 | Electrical cell; group of artillery | Phone power supply; violent assault | ⚪ No Change | 🟢 Sense Gain | 🟢 Sense Gain | Expanded to tech and legal slang |
-| bot | 7 | Robot; automated machine | Automated social media account; fake persona | ⚪ No Change | 🟢 Sense Gain | 🟢 Sense Gain | Digital sense added in T3 |
-| bouncer | 5 | Doorman; security guard | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Occupational term declines |
-| bush | 7 | Shrub; rural area | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Cultural reference fades |
-| cheese | 8 | Dairy product; food | Money (“cheddar”); fake smile (“say cheese”) | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | New slang meanings arise |
-| cheesy | 8 | Tasting of cheese; cheap quality | Corny, sentimental, exaggerated | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Stable slang since early 2000s |
-| chronic | 5 | Long-lasting (medical) | High-quality cannabis | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Cannabis sense appears, medical sense retained |
-| chump | 4 | Foolish person | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Obsolete slang disappears |
-| cool | 6 | Cold; calm, composed | Stylish, good, excellent | ⚪ No Change | ⚪ No Change | ⚪ No Change | Meaning stable across periods |
-| coon | 5 | Raccoon; old racial slur | None (declining use) | 🔴 Sense Loss | ⚪ No Change | 🟢 Sense Gain | Old slur declines; neutral sense persists |
-| crush | 8 | Press or squeeze; romantic infatuation | Online obsession; fan fixation | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Expands to digital/celebrity contexts |
-| douche | 3 | Medical cleaning device | Insult; foolish person | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Maintains slang insult sense |
-| drag | 11 | Pull or draw with effort | Boring situation; drag performance | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Loses literal use, gains cultural sense |
-| fan | 5 | Device for air movement; admirer | Sports or media enthusiast | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Physical meaning declines |
-| femme | 3 | Woman; feminine identity | LGBTQ+ identity marker | 🔴 Sense Loss | ⚪ No Change | 🟢 Sense Gain | Older gendered sense redefined |
-| frog | 7 | Amphibian | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Used less in slang contexts |
-| gay | 6 | Cheerful, bright; carefree | Homosexual identity; vibrant, flamboyant | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Semantic shift from happy → identity |
-| germ | 6 | Microbe; seed origin | Idea origin (“germ of an idea”) | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Abstract sense remains stable |
-| ghost | 9 | Spirit or apparition | Ignore someone; vanish online; fake account | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Modern slang expands widely |
-| gosh | 2 | Mild oath or exclamation | None | ⚪ No Change | ⚪ No Change | ⚪ No Change | Stable interjection |
-| mammy | 4 | Motherly figure; nanny | Abundance; affectionate reference | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Cultural sense reinterpreted |
-| moose | 7 | Large animal | None | ⚪ No Change | ⚪ No Change | ⚪ No Change | No significant change |
-| mug | 11 | Cup; face; rob or attack | Photograph; to pose; to make faces | 🟢 Sense Gain | ⚪ No Change | 🟢 Sense Gain | Adds performative sense |
-| penguin | 5 | Bird; symbol for tuxedo | Computer OS mascot (Linux Penguin) | 🟢 Sense Gain | 🟢 Sense Gain | ⚪ No Change | Tech meaning appears |
-| player | 5 | Participant in a game | Flirtatious person; manipulator | 🟢 Sense Gain | 🟢 Sense Gain | ⚪ No Change | Romantic/urban slang appears |
-| posse | 6 | Legal enforcement group | Group of friends or crew | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Meaning broadened socially |
-| psych | 8 | Relating to mind; psychology | To fake out; to prepare mentally | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Informal sense added |
-| ratchet | 5 | Tool with gears | Loud, brash, or low-class (slang) | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Negative slang added |
-| salty | 6 | Tasting of salt | Bitter, annoyed, resentful | ⚪ No Change | ⚪ No Change | ⚪ No Change | Consistent slang sense |
-| scum | 3 | Dirt or impurity; unpleasant person | Low-status group; insult | ⚪ No Change | ⚪ No Change | ⚪ No Change | Stable derogatory term |
-| mammy | 4 | Mother/nanny figure | Affectionate term or abundance slang | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Retains cultural nuance |
-| cucumber | 3 | Vegetable | None | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Phrase “cool as cucumber” persists |
-| frog | 7 | Amphibian | None | 🔴 Sense Loss | ⚪ No Change | ⚪ No Change | Literal sense retained only |
-| bouncer | 5 | Security guard; doorman | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Occupational term declines |
-| coon | 5 | Raccoon; slur | None | 🔴 Sense Loss | ⚪ No Change | ⚪ No Change | Offensive use fades |
-| germ | 6 | Microbe | Idea origin | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Abstract meaning emerges |
-| bush | 7 | Shrub; rural area | None | 🔴 Sense Loss | ⚪ No Change | ⚪ No Change | Old rural sense diminishes |
-
-
-🗂️ Full dataset available in `/data/bd-lsc_full.csv`.
+| Label | Meaning | Description |
+|:------|:---------|:-------------|
+| 🟢 **Sense Gain** | New sense(s) appeared | Word developed additional modern or slang meanings |
+| 🔴 **Sense Loss** | Old sense(s) disappeared | Word lost a previous sense from an older time period |
+| ⚪ **Stable** | No semantic change | Word preserved its primary meaning |
 
 ---
 
-## 📘 Annotation Schema
+## 💬 Target Words and Change Types
 
-| Word | Sense ID | Sense Description | T1 | T2 | T3 |
-|------|-----------|------------------|----|----|----|
-| fire | 1 | Combustion / flames | ✅ | ✅ | ✅ |
-| fire | 2 | Slang: “cool”, “excellent” | ❌ | ✅ | ✅ |
-| fire | 3 | To dismiss from a job | ✅ | ✅ | ✅ |
-
-Interpretation:  
-✅ = sense present in that period  
-❌ = sense absent  
-
-Label rules:
-- Sense appears → Sense Gain (SG)  
-- Sense disappears → Sense Loss (SL)  
-- Sense persists → No Change (NC)  
+The BD-LSC dataset contains **79 target lemmas**, each annotated across **T1–T2–T3** for sense change and accompanied by examples of both **standard** and **slang** usage.
 
 ---
 
-## 🧩 Dataset Creation Pipeline
-
-1. Word selection: Overlap of SlangSD (48k entries) and COHA (169k lemmas).  
-2. Filtering criteria:  
-   - Appears ≥50 times in at least one period  
-   - ≥50% frequency variance  
-   - Appears in multiple periods  
-   - Verified slang sense (via OED, Green’s, Urban, Online Slang Dictionary)  
-3. Annotation: Manual tagging of standard and slang senses per time slice (T1–T3).  
-4. Validation: Three annotators, inter-annotator agreement (κ ≈ 0.85–0.92).
+### Overview of Target Words and Semantic Change Labels (BD-LSC)
+This dataset presents an extended lexical semantic change resource that includes both **standard** and **slang** usages of English words across three time periods (T1–T3).  
+Each entry preserves *all raw senses* from the source sheet (“Words_lemmas_after_Filter”) and includes semantic change labels across temporal intervals.
 
 ---
 
-## 🧬 Research Tasks
-
-### 1️⃣ Lexical Semantic Change Detection (SCD)
-Determine whether a word’s sense is added, lost, or stable between periods.
-
-Input: Sense inventories from T1–T3  
-Output: {Sense Gain, Sense Loss, No Change}  
-
-
-## 📊 Baseline Evaluation
-
-| Model | Type | Multi-label Accuracy | Exact Sense Match | Notes |
-|--------|------|----------------------|-------------------|--------|
-| N-gram ML | Supervised | 0.70 | 0.66 | Good baseline |
-| DistilBERT | Supervised | 0.47 | 0.53 | Weak on slang |
-| FastText | Supervised | 0.47 | 0.53 | Limited context |
-| ALBERT + HDBSCAN | Unsupervised | 0.70 | 0.73 | Robust clustering |
-| GPT-4o (few-shot) | LLM | 0.818 | 0.908 | 🏆 Best overall |
-
-Key insight: GPT-4o demonstrates exceptional few-shot generalization for slang-driven semantic change.
+### 🔍 Label Legend
+| Symbol | Meaning |
+|:-------|:--------|
+| 🟢 Gain | New sense(s) or extended usage appeared |
+| 🔴 Loss | Older sense(s) declined or disappeared |
+| ⚪ Stable | No significant change across the period |
 
 ---
 
+### 📘 Overview of Target Words and Semantic Change Labels (BD-LSC)
+
+| Word | All Standard Meanings | All Slang Meanings | T1–T2 Label | T1–T3 Label | T2–T3 Label |
+|:------|:----------------------|:-------------------|:-------------|:-------------|:-------------|
+| abc | First three letters of the English alphabet. | American Born Chinese / Australian-born Chinese; American Broadcasting Company | ⚪ Stable | 🟢 Gain | 🟢 Gain |
+| artichoke | A vegetable | The act in which someone uses their teeth on a penis, during a blowjob, in a scraping motion, similar to how one would eat an artichoke; the vagina; an old woman; a man; to smoke (a pipe) | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| eat | consuming food | to give oral pleasure to a female; make money; to rob someone; to defeat or destroy; to annoy | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| atm | Automated Teller Machine | “At The Moment”; “Ass To Mouth” | 🔴 Loss | 🟢 Gain | 🟢 Gain |
+| bam | Used to imitate the sound of a hard blow or to convey abruptness | Scottish slang “Below Average Mentality”; exclamation “Bam!”; to have sexual intercourse | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| battery | A device to store electrical energy | Jamaican slang for gang sex; a man using performance-enhancing drugs during sex | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| beetle | An insect | A flashy young woman; to hurry away; Volkswagen car | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| bing | Heap of ore; search engine | A dose of drugs; solitary confinement cell; money | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| blender | Kitchen appliance | Fingering motion during sex; euphemism for sex; aggressive person | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| bmw | Car brand | “Black Man’s Wish”; “Be My Wife”; “Black Magic Woman” | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| bom | Brother; friend | Bill of materials; exclamation of joy; attractive person | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| bot | Robot; automatic program | Incompetent gamer; AI persona; buttocks; homosexual act | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| bouncer | Large man employed to keep order | On-off partner; liar; large object | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| breather | Brief pause; vent for air | Smoker in meetings (“loud breather”) | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| brownie | Chocolate dessert | Marijuana edible; airhead person; referring to brown-skinned people | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| bush | Shrub or clump of shrubs | Pubic hair; rural person; to ambush | 🟢 Gain | 🟢 Gain | ⚪ Stable |
+| cad | Dishonest man; scoundrel | “Computer Aided Design”; “Ctrl-Alt-Del”; “Cadillac” | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| cheese | Food from curdled milk | Money; marijuana; fake smile; bodily fluids; nonsense | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| cheesy | Tasting of cheese | Corny; cheap or fake; marijuana | 🟢 Gain | ⚪ Stable | ⚪ Stable |
+| chronic | Long-lasting (medical) | High-quality cannabis; excellent | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| chump | Foolish or gullible person | Common worker; unsophisticated person | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| climber | Person or plant that climbs | Social climber; cat burglar | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| clip | Fastener; short cut | Rob; kill; drug bundle | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| cooker | Cooking appliance | Meth manufacturer; sexy person; “high” | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| cook | To prepare food | To make meth; to falsify; to kill; to perform exceptionally | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| cool | Slightly cold; calm | Fashionable; trustworthy; “to die” | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| cooler | Container for cooling food | Prison cell; drug-laced cigarette | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| coon | Raccoon | Racial slur; sly person; goth makeup | 🔴 Loss | ⚪ Stable | ⚪ Stable |
+| crush | To press or squeeze | Romantic attraction; soft drink; obsession | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| cucumber | Vegetable | Penis | 🟢 Gain | 🟢 Gain | ⚪ Stable |
+| dap | Fist-bump greeting | Respect; acknowledgment; stylish | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| dew | Water droplets | Sexual fluid; marijuana; Mountain Dew | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| dinosaur | Prehistoric reptile | Outdated person; heroin slang | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| dip | Lower or submerge | To leave; pickpocket; drug user; stylish | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| douche | Cleaning product | Foolish or arrogant person | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| drag | To pull; theatrical clothing | Smoking; drag performance; boring event; insult | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| dude | Man; person | Friendly greeting; “cool person”; stoner slang | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| epic | Heroic poem | Remarkable; extreme; amazing | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| fan | Device for air movement | Pickpocket; to calm down | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| femme | Woman | Feminine partner in LGBTQ+ context | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| fig | Fruit | Genitals; slur; counterfeit coin; pickpocket | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| flutter | Quick wing movement | Gamble; sexual adventure; gay man | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| foam | Froth; bubbles | Beer; gamer slang for anger | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| frog | Amphibian | French person; condom; to cheat | 🟢 Gain | 🟢 Gain | ⚪ Stable |
+| gay | Cheerful; bright | Homosexual identity; flamboyant; stupid (slang) | 🔴 Loss | 🟢 Gain | 🟢 Gain |
+| ghost | Spirit | Ignore someone; vanish; murder | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| gosh | Euphemism for “God” | Mild exclamation of surprise | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| germ | Microorganism | Idea origin; insult; cigarette | 🟢 Gain | ⚪ Stable | ⚪ Stable |
+| mammy | Mother figure | Racial stereotype; “abundance” slang | 🔴 Loss | 🟢 Gain | 🟢 Gain |
+| moose | Animal | Large person; unattractive woman; close friend | 🟢 Gain | 🟢 Gain | ⚪ Stable |
+| mug | Cup; face | Fool; victim; face; to kiss | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| penguin | Bird | Soulmate; nun; LSD drug | 🟢 Gain | 🟢 Gain | ⚪ Stable |
+| player | Participant in a game | Womanizer; manipulator; dealer | 🟢 Gain | 🟢 Gain | ⚪ Stable |
+| posse | Legal group | Crew; gang; friends | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| psych | Psychology | To trick; to prepare mentally; to intimidate | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| ratchet | Tool mechanism | Unrefined woman; wild; pistol | 🟢 Gain | 🟢 Gain | 🟢 Gain |
+| salty | Tasting of salt | Angry; bitter; crude | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+| scum | Layer of dirt | Worthless person; semen | ⚪ Stable | ⚪ Stable | ⚪ Stable |
+
+---
+
+### 📄 Citation
+If you use this dataset, please cite:  
+> *Lexical Semantic Change in Slang and Standard Usage (BD-LSC), Language Resources & Evaluation, 2025.*
+
+---
+
+© 2025 BD-LSC Dataset Team
+"""
+
+# Save the markdown content
+with open("/mnt/data/README.md", "w", encoding="utf-8") as f:
+    f.write(readme_content)
+
+"/mnt/data/README.md"
+
+
+✅ **Total entries:** 79  
+**Legend:** 🟢 = Sense Gain 🔴 = Sense Loss ⚪ = Stable  
+
+---
+
+## 📜 Citation
+
+If you use this dataset, please cite:
 

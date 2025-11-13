@@ -33,28 +33,49 @@ Each target word is labeled for Sense Gain (SG), Sense Loss (SL), and No Change 
 
 The BD-LSC dataset includes 79 target words (8,000+ annotated senses), covering both slang and standard English.
 
-| Word | Example Standard Meanings | Example Slang Meanings | Period | Change Type |
-|:------|:---------------------------|:-------------------------|:--------|:--------------|
-| fire | Combustion, flames; to dismiss from a job; enthusiasm or passion | Excellent, cool, exciting; attractive person; to insult someone online (fire shots) | T2→T3 | 🟢 Sense Gain |
-| ghost | Spirit or apparition; faint image or trace | To ignore or suddenly cut off communication; to disappear from social media; a hidden online account | T2→T3 | 🟢 Sense Gain |
-| tea | Beverage made from leaves; letter "T" as a symbol | Gossip, truth, or personal information ("spill the tea"); energy or stimulant (from “vitamin T”) | T2→T3 | 🟢 Sense Gain |
-| salty | Tasting of salt; seasoned or maritime-related | Bitter, annoyed, resentful; harsh or offensive; sexually suggestive | T2→T3 | 🟢 Sense Gain |
-| gay | Cheerful, happy, bright; carefree or lively | Homosexual identity; used pejoratively in informal speech (now reclaimed); fashionable or vibrant | T1→T2 | 🔴 Sense Loss / 🟢 Sense Gain |
-| mammy | Mother; nanny; affectionate term for maternal figure | Term for abundance (“money’s mammy” = a lot of money); brand or song name; derogatory racial stereotype | T2→T3 | 🟢 Sense Gain |
-| broke | Lacking money; destroyed or damaged; fractured | Emotionally exhausted or depressed; completely without resources; person with no financial stability | T1→T3 | 🔴 Sense Shift |
-| plug | Electrical connector; stopper for a hole | Supplier or dealer (e.g., for goods or drugs); promoter or endorsement (e.g., “give me a plug”); social contact | T2→T3 | 🟢 Sense Gain |
-| drip | Falling liquid; sound of dripping; slow flow | Fashion sense or stylish outfit; jewelry or luxury appearance; confidence or swagger | T2→T3 | 🟢 Sense Gain |
-| lit | Past tense of “light”; illuminated | Exciting, fun, energetic; intoxicated; excellent or popular | T2→T3 | 🟢 Sense Gain |
-| sick | Ill or unwell; morally wrong | Amazing, impressive, cool; disturbing or twisted (dark humor); physically strong | T2→T3 | 🟢 Sense Gain |
-| troll | Mythical creature under a bridge; fishing method | Online harasser or provocateur; to bait someone online; person causing arguments intentionally | T1→T2 | 🟢 Sense Gain |
-| cloud | Visible mass of water vapor; weather formation | Online data storage (“in the cloud”); mood or mental state; tech ecosystem | T1→T2 | 🟢 Sense Gain |
-| flex | To bend or tighten muscles; to demonstrate power | To show off, boast, or flaunt possessions; to act confidently or arrogantly | T2→T3 | 🟢 Sense Gain |
-| bread | Baked food made from flour; staple food | Money, income, wealth (“get that bread”); livelihood or resources | T2→T3 | 🟢 Sense Gain |
-| keyboard | Musical instrument; panel of keys | Computer input device; set of digital keys on a phone or app | T1→T2 | 🟢 Sense Gain |
-| mouse | Small rodent; timid person | Computer input device; person spying or lurking online | T1→T2 | 🟢 Sense Gain |
-| viral | Relating to viruses or infections | Extremely popular or rapidly spreading online; meme or post with wide reach | T2→T3 | 🟢 Sense Gain |
-| chronic | Long-lasting or persistent (medical term) | High-quality cannabis; intense or extreme (positive or negative); title of Dr. Dre album | T2→T3 | 🟢 Sense Gain |
-| mad | Angry or insane; irrational | Extremely or very (e.g., “mad skills”); expressive or exaggerated slang intensifier | T1→T3 | 🟢 Sense Gain |
+
+| Word | No. of Senses | Example Standard Meanings | Example Slang Meanings | T1–T2 Label | T1–T3 Label | T2–T3 Label | Change Type Example |
+|:------|:--------------:|:---------------------------|:--------------------------|:-------------|:-------------|:-------------|:--------------------|
+| abc | 3 | Alphabet sequence; basic knowledge | Beginner-level; easy as ABC | ⚪ No Change | 🟢 Sense Gain | 🟢 Sense Gain | New informal usage appears online |
+| atm | 4 | Cash dispenser; banking terminal | “At the moment” (text slang) | 🔴 Sense Loss (technical narrowing) | 🟢 Sense Gain | 🟢 Sense Gain | Acronym gains new digital sense |
+| bam | 6 | Sudden impact; loud sound | Expression of excitement (“Bam!”) | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Added expressive interjection |
+| battery | 5 | Electrical cell; group of artillery | Phone power supply; violent assault | ⚪ No Change | 🟢 Sense Gain | 🟢 Sense Gain | Expanded to tech and legal slang |
+| bot | 7 | Robot; automated machine | Automated social media account; fake persona | ⚪ No Change | 🟢 Sense Gain | 🟢 Sense Gain | Digital sense added in T3 |
+| bouncer | 5 | Doorman; security guard | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Occupational term declines |
+| bush | 7 | Shrub; rural area | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Cultural reference fades |
+| cheese | 8 | Dairy product; food | Money (“cheddar”); fake smile (“say cheese”) | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | New slang meanings arise |
+| cheesy | 8 | Tasting of cheese; cheap quality | Corny, sentimental, exaggerated | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Stable slang since early 2000s |
+| chronic | 5 | Long-lasting (medical) | High-quality cannabis | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Cannabis sense appears, medical sense retained |
+| chump | 4 | Foolish person | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Obsolete slang disappears |
+| cool | 6 | Cold; calm, composed | Stylish, good, excellent | ⚪ No Change | ⚪ No Change | ⚪ No Change | Meaning stable across periods |
+| coon | 5 | Raccoon; old racial slur | None (declining use) | 🔴 Sense Loss | ⚪ No Change | 🟢 Sense Gain | Old slur declines; neutral sense persists |
+| crush | 8 | Press or squeeze; romantic infatuation | Online obsession; fan fixation | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Expands to digital/celebrity contexts |
+| douche | 3 | Medical cleaning device | Insult; foolish person | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Maintains slang insult sense |
+| drag | 11 | Pull or draw with effort | Boring situation; drag performance | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Loses literal use, gains cultural sense |
+| fan | 5 | Device for air movement; admirer | Sports or media enthusiast | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Physical meaning declines |
+| femme | 3 | Woman; feminine identity | LGBTQ+ identity marker | 🔴 Sense Loss | ⚪ No Change | 🟢 Sense Gain | Older gendered sense redefined |
+| frog | 7 | Amphibian | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Used less in slang contexts |
+| gay | 6 | Cheerful, bright; carefree | Homosexual identity; vibrant, flamboyant | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Semantic shift from happy → identity |
+| germ | 6 | Microbe; seed origin | Idea origin (“germ of an idea”) | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Abstract sense remains stable |
+| ghost | 9 | Spirit or apparition | Ignore someone; vanish online; fake account | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Modern slang expands widely |
+| gosh | 2 | Mild oath or exclamation | None | ⚪ No Change | ⚪ No Change | ⚪ No Change | Stable interjection |
+| mammy | 4 | Motherly figure; nanny | Abundance; affectionate reference | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Cultural sense reinterpreted |
+| moose | 7 | Large animal | None | ⚪ No Change | ⚪ No Change | ⚪ No Change | No significant change |
+| mug | 11 | Cup; face; rob or attack | Photograph; to pose; to make faces | 🟢 Sense Gain | ⚪ No Change | 🟢 Sense Gain | Adds performative sense |
+| penguin | 5 | Bird; symbol for tuxedo | Computer OS mascot (Linux Penguin) | 🟢 Sense Gain | 🟢 Sense Gain | ⚪ No Change | Tech meaning appears |
+| player | 5 | Participant in a game | Flirtatious person; manipulator | 🟢 Sense Gain | 🟢 Sense Gain | ⚪ No Change | Romantic/urban slang appears |
+| posse | 6 | Legal enforcement group | Group of friends or crew | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Meaning broadened socially |
+| psych | 8 | Relating to mind; psychology | To fake out; to prepare mentally | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Informal sense added |
+| ratchet | 5 | Tool with gears | Loud, brash, or low-class (slang) | 🟢 Sense Gain | 🟢 Sense Gain | 🟢 Sense Gain | Negative slang added |
+| salty | 6 | Tasting of salt | Bitter, annoyed, resentful | ⚪ No Change | ⚪ No Change | ⚪ No Change | Consistent slang sense |
+| scum | 3 | Dirt or impurity; unpleasant person | Low-status group; insult | ⚪ No Change | ⚪ No Change | ⚪ No Change | Stable derogatory term |
+| mammy | 4 | Mother/nanny figure | Affectionate term or abundance slang | 🔴 Sense Loss | 🟢 Sense Gain | 🟢 Sense Gain | Retains cultural nuance |
+| cucumber | 3 | Vegetable | None | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Phrase “cool as cucumber” persists |
+| frog | 7 | Amphibian | None | 🔴 Sense Loss | ⚪ No Change | ⚪ No Change | Literal sense retained only |
+| bouncer | 5 | Security guard; doorman | None | 🔴 Sense Loss | 🔴 Sense Loss | ⚪ No Change | Occupational term declines |
+| coon | 5 | Raccoon; slur | None | 🔴 Sense Loss | ⚪ No Change | ⚪ No Change | Offensive use fades |
+| germ | 6 | Microbe | Idea origin | 🟢 Sense Gain | ⚪ No Change | ⚪ No Change | Abstract meaning emerges |
+| bush | 7 | Shrub; rural area | None | 🔴 Sense Loss | ⚪ No Change | ⚪ No Change | Old rural sense diminishes |
 
 
 🗂️ Full dataset available in `/data/bd-lsc_full.csv`.

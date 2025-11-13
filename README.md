@@ -119,26 +119,5 @@ Each entry preserves *all raw senses* from the source sheet (“Words_lemmas_aft
 
 ### 📄 Citation
 If you use this dataset, please cite:  
-> *Lexical Semantic Change in Slang and Standard Usage (BD-LSC), Language Resources & Evaluation, 2025.*
 
----
-
-© 2025 BD-LSC Dataset Team
-"""
-
-# Save the markdown content
-with open("/mnt/data/README.md", "w", encoding="utf-8") as f:
-    f.write(readme_content)
-
-"/mnt/data/README.md"
-
-
-✅ **Total entries:** 79  
-**Legend:** 🟢 = Sense Gain 🔴 = Sense Loss ⚪ = Stable  
-
----
-
-## 📜 Citation
-
-If you use this dataset, please cite:
 
